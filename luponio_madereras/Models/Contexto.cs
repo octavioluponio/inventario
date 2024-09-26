@@ -9,6 +9,7 @@ namespace luponio_madereras.Models
 
         // Definir DbSet para las tablas de la base de datos
         public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
