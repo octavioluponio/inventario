@@ -1,0 +1,32 @@
+﻿@model Categoria;
+<body>
+    <main class="main-wrap">
+        <section class="content-main">
+            <div class="row">
+                <div class="col-9">
+                    <div class="content-header">
+                        <h2 class="content-title">Editar Categoría</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card mb-12">
+                        <div class="card-body">
+                            <form action="@Url.Action("Edit", "Categoria")" method="post">
+                                <input type="hidden" name="idCategoria" value="@Model.idCategoria" />
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-4">
+                                            <label for="product_name" class="form-label">Nombre</label>
+                                            <input type="text" name="Nombre" placeholder="Escribe nombre categoría" class="form-control" id="product_name" value="@Model.Nombre"  required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-light rounded font-sm mr-5 text-body hover-up">Guardar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
