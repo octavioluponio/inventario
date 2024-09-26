@@ -1,6 +1,43 @@
-﻿@{
+﻿@model List<Categoria>
+@{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<body>
+    <main class="main-wrap">
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Lista Categorias</h2>
+                </div>
+                <div>
+                    <a href="@Url.Action("Create", "Categoria")" class="btn btn-primary btn-sm rounded">Crear nueva categoría</a>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <article class="itemlist">
+                            @foreach(var categoria in Model)
+                            {
+                                <div class="row align-items-center">
+                                    <div class="categoria-fila" style="display:flex;gap:25px;">
+                                        <h6 class="mb-0">@categoria.idCategoria</h6>
+                                        <h6 class="mb-0" style="width:150px;">@categoria.Nombre</h6>
+                                        <a href="@Url.Action("Edit", "Categoria", new { id = categoria.idCategoria })" class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Editar </a>
+                                        <form action="@Url.Action("Delete", "Categoria", new { id = categoria.idCategoria })" method="post" style="display:inline;" onsubmit="return confirm('¿Está seguro de que desea eliminar esta categoría?');">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-sm font-sm btn-light rounded">
+                                                <i class="material-icons md-delete_forever"></i> Eliminar
+                                            </button>
+                                        </form>
+                                    </div>                     
+                                </div>
+                                <br />
+                            }
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
 
