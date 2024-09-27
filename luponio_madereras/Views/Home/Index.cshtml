@@ -1,8 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+﻿<main>
+    <section class="content-main mt-80 mb-80">
+        <div class="card mx-auto card-login">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Iniciar sesión</h4>
+                <form asp-controller="Home" asp-action="Login" method="post">
+                    <div class="mb-3">
+                        <input class="form-control" name="nombre" placeholder="Nombre de usuario o correo electrónico" type="text" required />
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" name="password" placeholder="Contraseña" type="password" required />
+                    </div>
+                    <div class="mb-4">
+                        <button type="submit" class="btn btn-primary w-100">Acceso</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

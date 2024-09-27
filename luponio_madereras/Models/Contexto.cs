@@ -17,6 +17,8 @@ namespace luponio_madereras.Models
 
         public DbSet<Producto> Producto { get; set; }
 
+        public DbSet<Usuario> Usuario { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

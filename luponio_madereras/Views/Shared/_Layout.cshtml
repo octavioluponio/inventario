@@ -15,7 +15,7 @@
 </head>
 <body>
     <main role="main" class="pb-3">
-        @if (ViewContext.RouteData.Values["Controller"].ToString() == "Login" &&
+        @if (ViewContext.RouteData.Values["Controller"].ToString() == "Home" &&
         ViewContext.RouteData.Values["Action"].ToString() == "Index")
         {
             @RenderBody()
@@ -36,7 +36,7 @@
                         <li class="dropdown nav-item">
                             <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="~/assets/imgs/people/avatar-2.png" alt="User" /></a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-                                <a class="dropdown-item text-danger"><i class="material-icons md-exit_to_app"></i>Cerrar sesión</a>
+                                <a class="dropdown-item text-danger" asp-controller="Home" asp-action="Index"><i class="material-icons md-exit_to_app"></i>Cerrar sesión</a>
                             </div>
                         </li>
                     </ul>

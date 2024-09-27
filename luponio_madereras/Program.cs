@@ -16,6 +16,7 @@ builder.Services.AddScoped<InterfaceCategoriaService, CategoriaService>();
 builder.Services.AddScoped<InterfaceClienteService, ClienteService>();
 builder.Services.AddScoped<InterfaceProveedorService, ProveedorService>();
 builder.Services.AddScoped<InterfaceProductoService, ProductoService>();
+builder.Services.AddScoped<InterfaceUsuarioService, UsuarioService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -38,6 +39,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Categoria}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
