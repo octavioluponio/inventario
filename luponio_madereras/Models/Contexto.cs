@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace luponio_madereras.Models
 {
@@ -10,6 +11,9 @@ namespace luponio_madereras.Models
         // Definir DbSet para las tablas de la base de datos
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
+
+   
+        public DbSet<Proveedor> Proveedor { get; set; }
 
         public DbSet<Producto> Producto { get; set; }
 

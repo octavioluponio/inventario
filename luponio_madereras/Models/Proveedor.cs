@@ -10,7 +10,6 @@ namespace luponio_madereras.Models
         public string direccion { get; set; }
         public string telefono { get; set; }
         public string email { get; set; }
-        public ICollection<Producto> Productos { get; set; }
-
+        public ICollection<Producto>? Productos { get; set; }
     }
 }

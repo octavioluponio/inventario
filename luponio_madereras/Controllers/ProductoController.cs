@@ -2,7 +2,6 @@
 using luponio_madereras.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace luponio_madereras.Controllers
 {
@@ -10,7 +9,7 @@ namespace luponio_madereras.Controllers
     {
         private readonly InterfaceProductoService _productoService;
         private readonly InterfaceCategoriaService _categoriaService;
-        private readonly InterfaceProveedorService _categoriaService;
+        private readonly InterfaceProveedorService _proveedorService;
 
 
         public ProductoController(InterfaceProductoService productoService,InterfaceCategoriaService categoriaService,
@@ -32,7 +31,7 @@ namespace luponio_madereras.Controllers
         public async Task<IActionResult> Create()
         {
             var categorias = await _categoriaService.getCategorias();
-            var proveedores = await _categoriaService.getProveedores();
+            var proveedores = await _proveedorService.getProveedores();
 
             ViewBag.Categorias = new SelectList(categorias, "idCategoria", "Nombre");
             ViewBag.Proveedores = new SelectList(proveedores, "idproveedor", "nombre");
@@ -60,6 +59,11 @@ namespace luponio_madereras.Controllers
             {
                 return NotFound();
             }
+            var categorias = await _categoriaService.getCategorias();
+            var proveedores = await _proveedorService.getProveedores();
+
+            ViewBag.Categorias = new SelectList(categorias, "idCategoria", "Nombre");
+            ViewBag.Proveedores = new SelectList(proveedores, "idproveedor", "nombre");
             return View(productoEncontrado);
         }
 

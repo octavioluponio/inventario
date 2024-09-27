@@ -12,10 +12,10 @@ namespace luponio_madereras.Models
         public int idcategoria { get; set; }
         public int idproveedor { get; set; }
 
-        [ForeignKey("idCategoria")]
-        public Categoria Categoria { get; set; }
+        [ForeignKey("idcategoria")]
+        public Categoria? Categoria { get; set; }
 
         [ForeignKey("idproveedor")]
-        public Proveedor Proveedor { get; set; }
+        public Proveedor? Proveedor { get; set; }
     }
 }

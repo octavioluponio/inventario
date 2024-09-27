@@ -7,6 +7,6 @@ namespace luponio_madereras.Models
         [Key]
         public int idCategoria { get; set; }
         public string Nombre { get; set; }
-        public ICollection<Producto> Productos { get; set; }
+        public ICollection<Producto>? Productos { get; set; }
     }
 }
