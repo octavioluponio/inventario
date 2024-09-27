@@ -1,0 +1,45 @@
+﻿@model List<Producto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <main class="main-wrap">
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Lista Productos</h2>
+                </div>
+                <div>
+                    <a href="@Url.Action("Create", "Producto")" class="btn btn-primary btn-sm rounded">Crear nuevo producto</a>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <article class="itemlist">
+                        @foreach (var producto in Model)
+                        {
+                            <div class="row align-items-center">
+                                <div class="categoria-fila" style="display:flex;gap:25px;">
+                                    <h6 class="mb-0">@producto.idproducto</h6>
+                                    <h6 class="mb-0" style="width:150px;">@producto.nombre</h6>
+                                    <h6 class="mb-0" style="width:150px;">@producto.stock</h6>
+                                    <h6 class="mb-0" style="width:150px;">@producto.Categoria.Nombre</h6>
+                                    <h6 class="mb-0" style="width:150px;">@producto.Proveedor.nombre</h6>
+                                    <a href="@Url.Action("Edit", "Producto", new { id = producto.idproducto })" class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Editar </a>
+                                    <form action="@Url.Action("Delete", "Producto", new { id = producto.idproducto })" method="post" style="display:inline;" onsubmit="return confirm('¿Está seguro de que desea eliminar este producto?');">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm font-sm btn-light rounded">
+                                            <i class="material-icons md-delete_forever"></i> Eliminar
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <br />
+                        }
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
