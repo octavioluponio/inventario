@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace luponio_madereras.Models
 {
@@ -10,5 +11,11 @@ namespace luponio_madereras.Models
         public int stock { get; set; }
         public int idcategoria { get; set; }
         public int idproveedor { get; set; }
+
+        [ForeignKey("idcategoria")]
+        public Categoria? Categoria { get; set; }
+
+        [ForeignKey("idproveedor")]
+        public Proveedor? Proveedor { get; set; }
     }
 }
