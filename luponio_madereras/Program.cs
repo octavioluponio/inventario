@@ -14,6 +14,8 @@ builder.Services.AddDbContext<Contexto>(options =>
 
 builder.Services.AddScoped<InterfaceCategoriaService, CategoriaService>();
 builder.Services.AddScoped<InterfaceClienteService, ClienteService>();
+
+builder.Services.AddScoped<InterfaceProveedorService, ProveedorService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
